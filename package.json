@@ -6,9 +6,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "deploy-s3": "serverless client deploy --no-confirm --no-config-change --no-policy-change --no-cors-change",
-    "client:deploy": "sls client deploy --no-config-change --no-policy-change --no-cors-change",
-    "client:deploy:nc": "npm run client:deploy -- --no-confirm",
-    "client:build:deploy": "npm run build && npm run client:deploy",
+    "client:deploy:nc": "npm run deploy-s3 -- --no-confirm",
+    "client:build:deploy": "npm run build && npm run deploy-s3",
     "client:build:deploy:nc": "npm run build && npm run client:deploy:nc",
     "cloudfront:setup": "sls deploy",
     "cloudfront:domainInfo": "sls domainInfo",
@@ -45,8 +44,10 @@
     "react-scripts": "3.4.1",
     "serverless": "^2.72.3",
     "serverless-finch": "^2.8.0",
+    "serverless-single-page-app-plugin": "file:./.serverless_plugins/serverless-single-page-app-plugin.js",
     "typescript": "~4.3.5",
     "yup": "^0.29.1"
+      
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
