@@ -1,12 +1,12 @@
-service: node-in-aws-web
 
+
+service: my-shop-rs
 frameworkVersion: '2'
 
 provider:
   name: aws
   runtime: nodejs12.x
-  # setup profile for AWS CLI.
-  # profile: node-aws
+  lambdaHashingVersion: 20201221
 
 plugins:
   - serverless-finch
@@ -17,7 +17,7 @@ plugins:
 
 custom:
   client:
-    bucketName: node-in-aws-web-bucket
+    bucketName: my-shop-rs-second
     distributionFolder: build
   s3BucketName: ${self:custom.client.bucketName}
 
